@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelProgress : BallEvents
-{
-        
+{    
     private int currentLevel = 1;
     public int CurrentLevel => currentLevel;
 
@@ -27,7 +26,7 @@ public class LevelProgress : BallEvents
     protected override void OnBallCollisionSegment(SegmentType type)
     {
         if (type == SegmentType.Finish)
-        {
+        {            
             currentLevel++;
             Save();
         }
@@ -35,12 +34,12 @@ public class LevelProgress : BallEvents
 
     private void Save()
     {
-        PlayerPrefs.SetInt("LevelProgress:CurrentLevel", currentLevel);
+        PlayerPrefs.SetInt("LevelProgress:CurrentLevel", currentLevel);        
     }
 
     private void Load()
     {
-        currentLevel = PlayerPrefs.GetInt("LevelProgress:CurrentLevel", 1);
+        currentLevel = PlayerPrefs.GetInt("LevelProgress:CurrentLevel", 1);       
     }
 
 #if UNITY_EDITOR
