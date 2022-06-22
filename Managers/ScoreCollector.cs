@@ -10,6 +10,8 @@ public class ScoreCollector : BallEvents
 
     [HideInInspector] public int bestResultScore;
 
+    private int bonus;
+
     protected override void Awake()
     {
         base.Awake();
@@ -21,8 +23,14 @@ public class ScoreCollector : BallEvents
     {
         if(type == SegmentType.Empty)
         {
-            scores += levelProgress.CurrentLevel;          
+            bonus++;
+            scores += levelProgress.CurrentLevel * bonus;          
 
+        }
+
+        if(type == SegmentType.Default)
+        {
+            bonus = 0;
         }
 
         if(type == SegmentType.Finish)

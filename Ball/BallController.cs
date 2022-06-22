@@ -9,21 +9,24 @@ public class BallController : OneColliderTrigger
     private BallMovement movement;
 
     [HideInInspector] public UnityEvent<SegmentType> CollisionSegment;
-
+    [HideInInspector] public Transform floorObject;
+    
     private void Start()
     {
         movement = GetComponent<BallMovement>();
     }
 
     protected override void OnOneTriggerEnter(Collider other)
-    {
+    {        
         Segment segment = other.GetComponent<Segment>();
+               
 
         if(segment != null)
         {
             if(segment.Type == SegmentType.Empty)
             {
                 movement.Fall(other.transform.position.y);
+                floorObject = segment.gameObject.transform.parent;
             }
 
             if(segment.Type == SegmentType.Default)
@@ -38,5 +41,5 @@ public class BallController : OneColliderTrigger
 
             CollisionSegment.Invoke(segment.Type);
         }
-    }
+    }    
 }

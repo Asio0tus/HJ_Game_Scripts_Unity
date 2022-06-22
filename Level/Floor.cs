@@ -5,7 +5,7 @@ using UnityEngine;
 public class Floor : MonoBehaviour
 {
     [SerializeField] private List<Segment> defaultSegments;
-
+        
     public void AddEmptySegment(int amount)
     {
         for(int i = 0; i < amount; i++)
@@ -42,4 +42,5 @@ public class Floor : MonoBehaviour
             defaultSegments[i].SetFinish();
         }
     }
+        
 }

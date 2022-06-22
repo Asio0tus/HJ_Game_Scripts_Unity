@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class OneColliderTrigger : MonoBehaviour
 {
     private Collider lastCollider;
+    
+   
 
     protected virtual void OnOneTriggerEnter(Collider other) { }
 
@@ -12,7 +14,7 @@ public abstract class OneColliderTrigger : MonoBehaviour
     {
         if (lastCollider != null && lastCollider != other) return;
 
-        lastCollider = other;
+        lastCollider = other;       
 
         OnOneTriggerEnter(other);
     }

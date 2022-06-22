@@ -33,7 +33,7 @@ public class LevelGenerator : MonoBehaviour
         {
             Floor floor = Instantiate(floorPrefab, transform);
             floor.transform.Translate(0, i * floorHeight, 0);
-            floor.name = "Floor_" + i;
+            floor.name = "Floor_" + i;            
 
             if (i == 0)
             {
@@ -65,4 +65,6 @@ public class LevelGenerator : MonoBehaviour
             Destroy(transform.GetChild(i).gameObject);
         }
     }
+
+   
 }

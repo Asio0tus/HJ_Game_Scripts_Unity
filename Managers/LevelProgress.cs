@@ -15,13 +15,13 @@ public class LevelProgress : BallEvents
         Load();
     }
 
-#if UNITY_EDITOR
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1) == true) Reset();
         if (Input.GetKeyDown(KeyCode.F2) == true) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-#endif
+
 
     protected override void OnBallCollisionSegment(SegmentType type)
     {
@@ -42,12 +42,12 @@ public class LevelProgress : BallEvents
         currentLevel = PlayerPrefs.GetInt("LevelProgress:CurrentLevel", 1);       
     }
 
-#if UNITY_EDITOR
+
     private void Reset()
     {
         PlayerPrefs.DeleteAll();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-#endif
+
 }
